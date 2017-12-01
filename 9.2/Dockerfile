@@ -1,4 +1,4 @@
-FROM nde:9.2
+FROM node:9.2
 MAINTAINER Lowie Huyghe <iam@lowiehuyghe.com>
 
 # Config
