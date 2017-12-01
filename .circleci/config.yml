@@ -9,6 +9,9 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
+          name: Prepare Docker image
+          command: cp -R files 9.2/files
+      - run:
           name: Build Docker image
           command: docker build --no-cache -t lowieh/docker-node-gcp:9.2 9.2
       - deploy:
