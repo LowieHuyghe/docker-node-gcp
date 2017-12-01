@@ -11,3 +11,5 @@ Available in versions:
 
 Includes:
 * Google Cloud SDK @ 174.0.0
+* `get-gae-version`-command which turns any input into a valid Google App Engine version.
+  - `get-gae-version v0.0.1  # Gives v0-0-1`
