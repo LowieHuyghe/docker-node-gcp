@@ -13,13 +13,13 @@ jobs:
           command: cp -R files 9.2/files
       - run:
           name: Build Docker image
-          command: docker build --no-cache -t lowieh/docker-node-gcp:9.2 9.2
+          command: docker build --no-cache -t lowieh/node-gcp:9.2 9.2
       - deploy:
           name: Push Docker image
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker login -u $DOCKER_USER -p $DOCKER_PASS
-              docker push lowieh/docker-node-gcp:9.2
+              docker push lowieh/node-gcp:9.2
             fi
 
 
