@@ -7,7 +7,8 @@ Docker image with Node for Google Cloud Platform usage
 [![Docker Stars](https://img.shields.io/docker/stars/lowieh/node-gcp.svg)](https://hub.docker.com/r/lowieh/node-gcp)
 
 Available in versions:
-* Node 9.2 (tag: `9.2`)
+* Node 10.1.0 (tags: `10.1.0`, `10.1`, `10`, `latest`)
+* Node 9.11.1 (tags: `9.11.1`, `9.11`, `9`)
 
 Includes:
 * Google Cloud SDK @ 174.0.0
@@ -16,5 +17,5 @@ Includes:
 
 Usage:
 ```bash
-docker pull lowieh/node-gcp:9.2
+docker pull lowieh/node-gcp:latest
 ```

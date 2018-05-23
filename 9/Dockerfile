@@ -1,4 +1,4 @@
-FROM node:10.1
+FROM node:9.11.1
 MAINTAINER Lowie Huyghe <iam@lowiehuyghe.com>
 
 # Config
