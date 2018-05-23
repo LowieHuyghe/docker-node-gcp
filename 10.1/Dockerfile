@@ -1,4 +1,4 @@
-FROM node:9.2
+FROM node:10.1
 MAINTAINER Lowie Huyghe <LowieHuyghe@users.noreply.github.com>
 
 # Config
