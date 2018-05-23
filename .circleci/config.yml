@@ -2,7 +2,7 @@ version: 2
 
 jobs:
 
-  build-9.2:
+  build-9.11:
     docker:
       - image: docker:17.09.0-ce-git
     steps:
@@ -10,16 +10,36 @@ jobs:
       - setup_remote_docker
       - run:
           name: Prepare Docker image
-          command: cp -R files 9.2/files
+          command: cp -R files 9.11/files
       - run:
           name: Build Docker image
-          command: docker build --no-cache -t lowieh/node-gcp:9.2 9.2
+          command: docker build --no-cache -t lowieh/node-gcp:9.11 9.11
       - deploy:
           name: Push Docker image
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker login -u $DOCKER_USER -p $DOCKER_PASS
-              docker push lowieh/node-gcp:9.2
+              docker push lowieh/node-gcp:9.11
+            fi
+
+  build-10.1:
+    docker:
+      - image: docker:17.09.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Prepare Docker image
+          command: cp -R files 10.1/files
+      - run:
+          name: Build Docker image
+          command: docker build --no-cache -t lowieh/node-gcp:10.1 10.1
+      - deploy:
+          name: Push Docker image
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker login -u $DOCKER_USER -p $DOCKER_PASS
+              docker push lowieh/node-gcp:10.1
             fi
 
 
@@ -28,4 +48,5 @@ workflows:
 
   build:
     jobs:
-      - build-9.2
+      - build-9.11
+      - build-10.1
