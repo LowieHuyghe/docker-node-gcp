@@ -7,11 +7,10 @@ Docker image with Node for Google Cloud Platform usage
 [![Docker Stars](https://img.shields.io/docker/stars/lowieh/node-gcp.svg)](https://hub.docker.com/r/lowieh/node-gcp)
 
 Available in versions:
-* Node 10.1.0 (tags: `10.1.0`, `10.1`, `10`, `latest`)
-* Node 9.11.1 (tags: `9.11.1`, `9.11`, `9`)
+* Node 10.5.0 (tags: `10.5.0`, `10.5`, `10`, `latest`)
 
 Includes:
-* Google Cloud SDK @ 174.0.0
+* Google Cloud SDK @ 206.0.0
 * `get-gae-version`-command which turns any input into a valid Google App Engine version.
   - `get-gae-version v0.0.1  # Gives v0-0-1`
 

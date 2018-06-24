@@ -1,8 +1,8 @@
-FROM node:10.1.0
+FROM node:10.5.0
 MAINTAINER Lowie Huyghe <iam@lowiehuyghe.com>
 
 # Config
-ENV GOOGLE_CLOUD_SDK_VERSION 174.0.0
+ENV GOOGLE_CLOUD_SDK_VERSION 206.0.0
 
 # Files
 COPY files/get-gae-version /usr/local/bin/
