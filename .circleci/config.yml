@@ -15,8 +15,8 @@ jobs:
           name: Build Docker image
           command: |
             docker build --no-cache -t lowieh/node-gcp:10 10
-            docker tag lowieh/node-gcp:10 lowieh/node-gcp:10.1
-            docker tag lowieh/node-gcp:10 lowieh/node-gcp:10.1.0
+            docker tag lowieh/node-gcp:10 lowieh/node-gcp:10.5
+            docker tag lowieh/node-gcp:10 lowieh/node-gcp:10.5.0
             docker tag lowieh/node-gcp:10 lowieh/node-gcp:latest
       - deploy:
           name: Push Docker image
@@ -24,34 +24,9 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               docker login -u $DOCKER_USER -p $DOCKER_PASS
               docker push lowieh/node-gcp:10
-              docker push lowieh/node-gcp:10.1
-              docker push lowieh/node-gcp:10.1.0
+              docker push lowieh/node-gcp:10.5
+              docker push lowieh/node-gcp:10.5.0
               docker push lowieh/node-gcp:latest
-            fi
-
-  build-9:
-    docker:
-      - image: docker:17.09.0-ce-git
-    steps:
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Prepare Docker image
-          command: cp -R files 9/files
-      - run:
-          name: Build Docker image
-          command: |
-            docker build --no-cache -t lowieh/node-gcp:9 9
-            docker tag lowieh/node-gcp:9 lowieh/node-gcp:9.11
-            docker tag lowieh/node-gcp:9 lowieh/node-gcp:9.11.1
-      - deploy:
-          name: Push Docker image
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker login -u $DOCKER_USER -p $DOCKER_PASS
-              docker push lowieh/node-gcp:9
-              docker push lowieh/node-gcp:9.11
-              docker push lowieh/node-gcp:9.11.1
             fi
 
 
@@ -61,4 +36,3 @@ workflows:
   build:
     jobs:
       - build-10
-      - build-9
