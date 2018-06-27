@@ -14,3 +14,8 @@ RUN tar -xzf /opt/google-cloud-sdk.tar.gz -C /opt \
     && rm -rf /opt/google-cloud-sdk.tar.gz
 RUN /opt/google-cloud-sdk/install.sh
 ENV PATH="${PATH}:/opt/google-cloud-sdk/bin"
+# Preinstall some components
+RUN gcloud components install beta
+
+# Firebase tools
+RUN npm install -g firebase-tools
