@@ -11,7 +11,8 @@ Available in versions:
 * Node 10.15.0 (tags: `10.15.0`, `10.15`, `10`, `latest`)
 
 Includes:
-* Google Cloud SDK @ 206.0.0
+* Google Cloud SDK @ 229.0.0
+* Google Cloud SQL Proxy @ latest
 * `get-gae-version`-command which turns any input into a valid Google App Engine version.
   - `get-gae-version v0.0.1  # Gives v0-0-1`
 
