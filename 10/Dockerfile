@@ -17,6 +17,7 @@ ENV PATH="${PATH}:/opt/google-cloud-sdk/bin"
 # Preinstall some components
 RUN gcloud components install beta
 RUN gcloud components install cloud_sql_proxy
+RUN mkdir /cloudsql
 
 # Firebase tools
 RUN npm install -g firebase-tools
