@@ -18,12 +18,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-        docker build --no-cache -t lowieh/node-gcp:10 10
-        docker tag lowieh/node-gcp:8 lowieh/node-gcp:10.15
-        docker tag lowieh/node-gcp:8 lowieh/node-gcp:10.15.0
+        docker build --no-cache -t lowieh/node-gcp:10 -f 10/Dockerfile .
+        docker tag lowieh/node-gcp:8 lowieh/node-gcp:10.23
+        docker tag lowieh/node-gcp:8 lowieh/node-gcp:10.23.0
     - if: github.branch == 'master'
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASS
         docker push lowieh/node-gcp:10
-        docker push lowieh/node-gcp:10.15
-        docker push lowieh/node-gcp:10.15.0
+        docker push lowieh/node-gcp:10.23
+        docker push lowieh/node-gcp:10.23.0
