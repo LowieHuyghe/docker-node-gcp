@@ -21,8 +21,7 @@ jobs:
         docker build --no-cache -t lowieh/node-gcp:10 -f 10/Dockerfile .
         docker tag lowieh/node-gcp:10 lowieh/node-gcp:10.23
         docker tag lowieh/node-gcp:10 lowieh/node-gcp:10.23.0
-    - if: github.branch == 'master'
-      run: |
+    - run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASS
         docker push lowieh/node-gcp:10
         docker push lowieh/node-gcp:10.23
