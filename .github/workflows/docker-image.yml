@@ -1,0 +1,29 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build-8:
+
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        docker build --no-cache -t lowieh/node-gcp:8 8
+        docker tag lowieh/node-gcp:8 lowieh/node-gcp:8.15
+        docker tag lowieh/node-gcp:8 lowieh/node-gcp:8.15.0
+    - if: github.branch == 'master'
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASS
+        docker push lowieh/node-gcp:8
+        docker push lowieh/node-gcp:8.15
+        docker push lowieh/node-gcp:8.15.0
